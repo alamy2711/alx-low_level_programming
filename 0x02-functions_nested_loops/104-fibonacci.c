@@ -9,7 +9,7 @@
 int main(void)
 {
 	int i;
-	double x = 1, y = 2, f;
+	long double x = 1, y = 2, f;
 
 	for (i = 1; i <= 98; i++)
 	{
