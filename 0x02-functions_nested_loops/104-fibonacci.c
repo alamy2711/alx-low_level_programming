@@ -20,7 +20,7 @@ int main(void)
 			f = x + y;
 			x = y;
 			y = f;
-			printf("%.0f", f);
+			printf("%.0ld", f);
 		}
 
 		if (i != 98)
