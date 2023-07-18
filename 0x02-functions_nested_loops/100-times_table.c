@@ -1,5 +1,8 @@
 #include "main.h"
 
+/* Prototypes */
+void print_separator(int i, int j, int n, int m);
+
 /**
  * print_times_table - prints the n times table, starting with 0.
  * @n: the table size
@@ -32,26 +35,40 @@ void print_times_table(int n)
 				}
 				else if (m < 10)
 					_putchar(m % 10 + '0');
-				if (j != n && (m + i) < 10)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(' ');
-				}
-				else if (j != n && (m + i) >= 10 && (m + i) < 100)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-				}
-				else if (j != n && (m + i) >= 100)
-				{
-					_putchar(',');
-					_putchar(' ');
-				}
+				print_separator(i, j, n, m);
 			}
 			_putchar('\n');
 		}
+	}
+}
+
+/**
+ * print_separator - prints separators between times table cells
+ * @i: row multiplier
+ * @j: column multiplier
+ * @n: the table size
+ * @m: product m = i * j
+ *
+ * Return: void
+ */
+void print_separator(int i, int j, int n, int m)
+{
+	if (j != n && (m + i) < 10)
+	{
+		_putchar(',');
+		_putchar(' ');
+		_putchar(' ');
+		_putchar(' ');
+	}
+	else if (j != n && (m + i) >= 10 && (m + i) < 100)
+	{
+		_putchar(',');
+		_putchar(' ');
+		_putchar(' ');
+	}
+	else if (j != n && (m + i) >= 100)
+	{
+		_putchar(',');
+		_putchar(' ');
 	}
 }
