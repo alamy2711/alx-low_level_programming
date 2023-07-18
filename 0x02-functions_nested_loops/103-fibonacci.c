@@ -18,7 +18,7 @@ int main(void)
 			sum += f;
 	} while (f < 4000000);
 
-	printf("\n");
+	printf("%ld\n", sum);
 
 	return (0);
 }
