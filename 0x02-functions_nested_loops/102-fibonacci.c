@@ -9,7 +9,7 @@
 int main(void)
 {
 	int i;
-	float x = 1, y = 2, f;
+	double x = 1, y = 2, f;
 
 	for (i = 1; i <= 50; i++)
 	{
