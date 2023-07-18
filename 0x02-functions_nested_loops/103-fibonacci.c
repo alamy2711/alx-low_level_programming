@@ -8,24 +8,16 @@
 */
 int main(void)
 {
-	int i;
-	double x = 1, y = 2, f;
+	long x = 1, y = 2, f, sum = 2;
 
-	for (i = 1; i <= 50; i++)
-	{
-		if (i <= 2)
-			printf("%d", i);
-		else
-		{
-			f = x + y;
-			x = y;
-			y = f;
-			printf("%.0f", f);
-		}
+	do {
+		f = x + y;
+		x = y;
+		y = f;
+		if ((f % 2) == 0)
+			sum += f;
+	} while (f < 4000000);
 
-		if (i != 50)
-			printf(", ");
-	}
 	printf("\n");
 
 	return (0);
