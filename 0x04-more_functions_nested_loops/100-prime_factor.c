@@ -29,28 +29,26 @@ int main(void)
 
 /**
  * isPrime - checks if a number is prime
- * @num: number to check
- * Return: 1 if num is prime, 0 if num is not prime
+ * @n: number to check
+ * Return: 1 if n is prime, 0 if n is not prime
 */
-int isPrime(int num)
+int isPrime(int n)
 {
-	int i, isPrime = 1;
+	int i;
 
-	if (num <= 0)
-	{
+	if (n <= 1)
 		return (0);
-	}
-	if (num == 1)
-	{
+	if (n <= 3)
+		return (1);
+
+	if (n % 2 == 0 || n % 3 == 0)
 		return (0);
-	}
-	for (i = 2; i <= sqrt(num); ++i)
+
+	for (i = 5; i * i <= n; i = i + 6)
 	{
-		if (num % i == 0)
-		{
-			isPrime = 0;
-		}
+		if (n % i == 0 || n % (i + 2) == 0)
+			return (0);
 	}
 
-	return (isPrime);
+	return (1);
 }
