@@ -2,9 +2,6 @@
 #include <time.h>
 #include <stdlib.h>
 
-/* Prototype */
-int getRandom(int start, int end);
-
 /**
  * main - Program that generates random valid passwords
  * for the program 101-crackme
@@ -29,4 +26,3 @@ int main(void)
 
 	return (0);
 }
-
