@@ -17,9 +17,9 @@ void print_buffer(char *b, int size)
 	for (i = 0; i <= loop; i++)
 	{
 		if (i % 10 == 0 && i != 0)
-		{	
+		{
 			printf(" ");
-			for (;j < i && j < size; j++)
+			for (; j < i && j < size; j++)
 			{
 				if (b[j] >= 32 && b[j] <= 126)
 					putchar(b[j]);
@@ -36,7 +36,7 @@ void print_buffer(char *b, int size)
 
 		if (i < size)
 			printf("%02x", b[i]);
-		
+
 		if (i >= size && i < loop)
 			printf("  ");
 	}
