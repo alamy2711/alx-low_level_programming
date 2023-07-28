@@ -13,6 +13,8 @@ void print_buffer(char *b, int size)
 
 	if (size % 10 != 0)
 		loop = size + (10 - size % 10);
+	else
+		loop = size;
 
 	for (i = 0; i <= loop; i++)
 	{
