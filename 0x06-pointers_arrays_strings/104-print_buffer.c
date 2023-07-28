@@ -15,7 +15,7 @@ void print_buffer(char *b, int size)
 		loop = size + (10 - size % 10);
 	else
 		loop = size;
-	
+
 	if (size == 0)
 		printf("\n");
 
