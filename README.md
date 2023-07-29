@@ -1,7 +1,7 @@
 
 # ALX Low-Level Programming
 
-![Logo](https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1289560/retina_1708x683_cover-0828_AfterAllTheseYearstheWorldisStillPoweredbyCProgramming_Razvan_Newsletter-2b9ea38294bb08c5aea1f0c1cb06732f.png)
+![Logo](https://www.dicazo.com/images/coursesbanners/clanguage-course-in-jaipur.png)
 
 ---
 
