@@ -2,6 +2,11 @@
 
 ![Logo](https://www.dicazo.com/images/coursesbanners/clanguage-course-in-jaipur.png)
 
+<div>
+   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/alamy2711/alx-low_level_programming?style=%20flat-square">
+   <img alt="GitHub last commit (by committer)" src="https://img.shields.io/github/last-commit/alamy2711/alx-low_level_programming?style=flat-square">
+</div>
+
 ## About
 
 This repository contains a collection of [ALX](https://www.alxafrica.com/) projects focused on the C programming language. Each project consists of multiple tasks, and their corresponding solutions can be found in the respective project directories.
