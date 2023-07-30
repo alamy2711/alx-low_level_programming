@@ -46,7 +46,7 @@ To access any project you wish to view, follow these steps:
 1. Clone the repository:
 
    ``` bash
-   git clone https://github.com/Pericles001/alx-low_level_programming
+   git clone https://github.com/alamy2711/alx-low_level_programming
    cd alx-low_level_programming
    ```
    
@@ -59,7 +59,7 @@ To access any project you wish to view, follow these steps:
 3. Compile and run your desired file (e.g., "2-print_alphabet.c"):
 
    ``` bash
-   gcc -Wall -Werror -Wextra -pedantic -std=gnu89 2-print_alphabet.c -2-print_alphabet
+   gcc -Wall -Werror -Wextra -pedantic -std=gnu89 2-print_alphabet.c -o 2-print_alphabet
    ./2-print_alphabet
    ```
 
