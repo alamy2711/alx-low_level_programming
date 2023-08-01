@@ -6,7 +6,7 @@
  * a square matrix of integers
  * @a: square matrix
  * @size: size of dimension of the square matrix
- * Return: pointer void
+ * Return: void
 */
 void print_diagsums(int *a, int size)
 {
