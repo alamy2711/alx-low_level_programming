@@ -8,7 +8,7 @@
 */
 int _sqrt(int n, int sup)
 {
-	if (sup > 2 * n)
+	if (sup > 2 / n)
 		return (-1);
 	if (n == sup * sup)
 		return (sup);
