@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < 5; i++)
 	{
-		while (amt >= coins_values[i])
+		if (amt >= coins_values[i])
 		{
 			coins += amt / coins_values[i];
 			amt %= coins_values[i] * (amt / coins_values[i]);
