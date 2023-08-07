@@ -50,8 +50,7 @@ char **strtow(char *str)
 			if (str[m] != ' ')
 			{
 				arr[i][j] = str[m];
-	printf("arr[%d][%d] = %c\n", i, j, arr[i][j]);
-			j++;
+				j++;
 			}
 			m++;
 			if (str[m - 1] != ' ' && (str[m] == ' ' || str[m] == '\0'))
