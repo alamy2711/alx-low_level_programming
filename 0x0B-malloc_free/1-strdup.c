@@ -2,7 +2,6 @@
 
 /**
  * _strdup - duplicates a string
- * a specific char
  * @str: string to duplicate
  * Return: NULL if str = NULL or malloc failed, otherwise returns copy of str
  */
