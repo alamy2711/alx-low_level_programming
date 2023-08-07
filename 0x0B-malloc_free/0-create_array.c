@@ -5,7 +5,7 @@
  * a specific char
  * @size: array size
  * @c: character to be initialized
- * Return: 0 if size = 0 or malloc failed, otherwise returns arr
+ * Return: NULL if size = 0 or malloc failed, otherwise returns arr
  */
 char *create_array(unsigned int size, char c)
 {
