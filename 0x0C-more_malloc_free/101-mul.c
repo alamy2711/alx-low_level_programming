@@ -112,7 +112,7 @@ void print_reversed_array(int *arr, int len)
 	int i;
 
 	for (i = len - 1; i >= 0; i--)
-		printf("%d", arr[i]);
+		_putchar(arr[i] + '0');
 
 	_putchar('\n');
 }
