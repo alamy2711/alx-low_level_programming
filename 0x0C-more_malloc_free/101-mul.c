@@ -103,8 +103,9 @@ void print_error_and_exit(void)
 }
 
 /**
- * print_reversed_string - Prints a string in reverse
- * @str: String to print in reverse
+ * print_reversed_array - Prints an array in reverse
+ * @arr: String to print in reverse
+ * @len: Array length
  */
 void print_reversed_array(int *arr, int len)
 {
