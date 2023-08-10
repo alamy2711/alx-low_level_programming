@@ -17,14 +17,19 @@ void print_reversed_string(char *str);
  */
 int main(int ac, char *av[])
 {
-	char *num1 = av[1], *num2 = av[2];
+	char *num1, *num2;
 	char *res;
-	unsigned int len1 = strlen(num1), len2 = strlen(num2);
+	int len1, len2;
 	int i, j, k, dig1, dig2, sum, carry;
 
 	/* Checks if number of arguments is incorrect */
 	if (ac != 3)
 		print_error_and_exit();
+
+	num1 = av[1];
+	num2 = av[2];
+	len1 = strlen(num1);
+	len2 = strlen(num2);
 
 	/* Allcoate a block of memory to store the result */
 	res = malloc((len1 + len2 + 1) * sizeof(char));
@@ -32,7 +37,7 @@ int main(int ac, char *av[])
 		print_error_and_exit();
 
 	/* Initialize res with zeros */
-	for (i = 0; i < (int)(len1 + len2 + 1); i++)
+	for (i = 0; i < len1 + len2 + 1; i++)
 		res[i] = '0';
 
 	/* Calcualate Multiplication */
