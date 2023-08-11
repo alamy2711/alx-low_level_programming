@@ -6,8 +6,7 @@
 
 /* Prototype */
 void print_error_and_exit(void);
-int is_number(char *num);
-void print_array(int *arr, int len);
+void print_reversed_string(char *str);
 
 /**
  * main - A program that multiplies two positive numbers
@@ -19,16 +18,13 @@ void print_array(int *arr, int len);
 int main(int ac, char *av[])
 {
 	char *num1, *num2;
-	int *res;
+	char *res;
 	int len1, len2;
 	int i, j, k, dig1, dig2, sum, carry;
 
 	/* Checks if number of arguments is incorrect */
-	if (ac != 3 || !is_number(av[1]) || !is_number(av[2]))
-	{
-		printf("Error\n");
-		exit(98);
-	}
+	if (ac != 3)
+		print_error_and_exit();
 
 	num1 = av[1];
 	num2 = av[2];
@@ -36,9 +32,13 @@ int main(int ac, char *av[])
 	len2 = strlen(num2);
 
 	/* Allcoate a block of memory to store the result */
-	res = calloc(len1 + len2, sizeof(int));
+	res = malloc((len1 + len2 + 1) * sizeof(char));
 	if (res == NULL)
 		print_error_and_exit();
+
+	/* Initialize res with zeros */
+	for (i = 0; i < len1 + len2 + 1; i++)
+		res[i] = '0';
 
 	/* Calcualate Multiplication */
 	for (i = len1 - 1; i >= 0; i--)
@@ -47,25 +47,47 @@ int main(int ac, char *av[])
 
 		for (j = len2 - 1; j >= 0; j--)
 		{
+			/* Checks if num1 and num2 contains no-digit characters*/
+			if (!isdigit(num1[i]) || !isdigit(num2[j]))
+			{
+				free(res);
+				print_error_and_exit();
+			}
+
 			dig1 = num1[i] - '0';
 			dig2 = num2[j] - '0';
 
-			k = i + j + 1;
-			sum = dig1 * dig2 + res[k] + carry;
+			k = (len1 - i - 1) + (len2 - j - 1);
+			sum = dig1 * dig2 + (res[k] - '0') + carry;
 
 			carry = sum / 10;
 
-			res[k] = (sum % 10);
+			res[k] = (sum % 10) + '0';
 		}
 		if (carry > 0)
 		{
-			k = i + j + 1;
+			k = (len1 - i - 1) + (len2 - j - 1);
 			res[k] += carry;
 		}
 	}
 
-	/* Print the result */
-	print_array(res, len1 + len2);
+	/* Skip zeros from the right */
+	for (i = len1 + len2 - 1; i >= 0 && res[i] == '0';)
+		i--;
+
+	/* Checks if result is 0 */
+	if (i == -1)
+	{
+		_putchar('0');
+		_putchar('\n');
+		free(res);
+		return (0);
+	}
+
+	res[i + 1] = '\0';
+
+	/* Print the reversed result */
+	print_reversed_string(res);
 
 	free(res);
 
@@ -87,42 +109,15 @@ void print_error_and_exit(void)
 }
 
 /**
- * is_number - Checks if a number contains no-digit characters
- * @num: Number to check
- *
- * Return: 1 if num is number, otherwise 0
+ * print_reversed_string - Prints a string in reverse
+ * @str: String to print in reverse
  */
-int is_number(char *num)
-{
-	unsigned int i;
-
-	for (i = 0; i < strlen(num); i++)
-	{
-		if (!isdigit(num[i]))
-			return (0);
-	}
-		return (1);
-}
-
-/**
- * print_array - Prints an array
- * @arr: Array to print
- * @len: Array length
- */
-void print_array(int *arr, int len)
+void print_reversed_string(char *str)
 {
 	int i;
 
-	/* Skip zeros from the left */
-	for (i = 0; i < len && arr[i] == 0;)
-		i++;
+	for (i = strlen(str) - 1; i >= 0; i--)
+		_putchar(str[i]);
 
-	/* Checks if arr contains only zeros */
-	if (i == len)
-		printf("0");
-
-	for (; i < len; i++)
-		printf("%d", arr[i]);
-
-	printf("\n");
+	_putchar('\n');
 }
