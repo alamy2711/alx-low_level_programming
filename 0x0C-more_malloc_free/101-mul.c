@@ -114,15 +114,15 @@ void print_array(int *arr, int len)
 	int i;
 
 	/* Skip zeros from the left */
-	for (i = 0; arr[i] == 0 && i < len;)
+	for (i = 0; i < len && arr[i] == 0;)
 		i++;
 
 	/* Checks if arr contains only zeros */
 	if (i == len)
-		_putchar('0');
+		printf("0");
 
 	for (; i < len; i++)
-		_putchar(arr[i] + '0');
+		printf("%d", arr[i]);
 
-	_putchar('\n');
+	printf("\n");
 }
