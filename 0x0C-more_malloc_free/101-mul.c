@@ -6,6 +6,7 @@
 
 /* Prototype */
 void print_error_and_exit(void);
+int is_number(char *num);
 void print_array(int *arr, int len);
 
 /**
@@ -31,6 +32,10 @@ int main(int ac, char *av[])
 	len1 = strlen(num1);
 	len2 = strlen(num2);
 
+	/* Checks if a number contains no-digit characters */
+	if (!is_number(num1) || !is_number(num2))
+		print_error_and_exit();
+
 	/* Allcoate a block of memory to store the result */
 	res = calloc(len1 + len2, sizeof(int));
 	if (res == NULL)
@@ -43,13 +48,6 @@ int main(int ac, char *av[])
 
 		for (j = len2 - 1; j >= 0; j--)
 		{
-			/* Checks if num1 and num2 contains no-digit characters*/
-			if (!isdigit(num1[i]) || !isdigit(num2[j]))
-			{
-				free (res);
-				print_error_and_exit();
-			}
-
 			dig1 = num1[i] - '0';
 			dig2 = num2[j] - '0';
 
@@ -87,6 +85,24 @@ void print_error_and_exit(void)
 		_putchar(error_msg[i]);
 
 	exit(98);
+}
+
+/**
+ * is_number - Checks if a number contains no-digit characters
+ * @num: Number to check
+ *
+ * Return: 1 if num is number, otherwise 0
+ */
+int is_number(char *num)
+{
+	unsigned int i;
+
+	for (i = 0; i < strlen(num); i++)
+	{
+		if (!isdigit(num[i]))
+			return (0);
+	}
+		return (1);
 }
 
 /**
