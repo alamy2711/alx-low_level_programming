@@ -27,7 +27,7 @@ int main(int ac, char *av[])
 	if (ac != 3 || !is_number(av[1]) || !is_number(av[2]))
 	{
 		printf("Error\n");
-		exit (98);
+		exit(98);
 	}
 
 	num1 = av[1];
@@ -119,10 +119,7 @@ void print_array(int *arr, int len)
 
 	/* Checks if arr contains only zeros */
 	if (i == len)
-	{
 		_putchar('0');
-		_putchar('\n');
-	}
 
 	for (; i < len; i++)
 		_putchar(arr[i] + '0');
