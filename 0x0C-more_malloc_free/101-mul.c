@@ -24,17 +24,16 @@ int main(int ac, char *av[])
 	int i, j, k, dig1, dig2, sum, carry;
 
 	/* Checks if number of arguments is incorrect */
-	if (ac != 3)
-		print_error_and_exit();
+	if (ac != 3 || !is_number(av[1]) || !is_number(av[2]))
+	{
+		printf("Error\n");
+		exit (98);
+	}
 
 	num1 = av[1];
 	num2 = av[2];
 	len1 = strlen(num1);
 	len2 = strlen(num2);
-
-	/* Checks if a number contains no-digit characters */
-	if (!is_number(num1) || !is_number(num2))
-		print_error_and_exit();
 
 	/* Allcoate a block of memory to store the result */
 	res = calloc(len1 + len2, sizeof(int));
