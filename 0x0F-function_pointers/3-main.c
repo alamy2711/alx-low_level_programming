@@ -21,14 +21,18 @@ int main(int ac, char *av[])
 
 	/* Checks the given operator */
 	op = av[2];
-	if (*op != '+' && *op != '-' && *op != '*' && *op != '/' && *op != '%')
+
+	num1 = atoi(av[1]);
+	num2 = atoi(av[3]);
+	get_op_func(op);
+
+	/* Checks if the operator given is correct */
+	if (get_op_func(op) == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	num1 = atoi(av[1]);
-	num2 = atoi(av[3]);
 	result = get_op_func(op)(num1, num2);
 
 	printf("%d\n", result);
