@@ -22,7 +22,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	if (index == 0)
 		return (delete_head(head));
 
-	if (index == 8)
+	if (index == listint_len(*head) - 1)
 		return (delete_tail(head));
 
 	deletedNode = get_nodeint_at_index(*head, index);
@@ -87,16 +87,22 @@ int delete_head(listint_t **head)
 	return (1);
 }
 
+/**
+ * delete_tail - Deletes the tail node of a listint_t linked list
+ * @head: The header of listint_t list
+ *
+ * Return: 1 if it succeeded, -1 if it failed
+ */
 int delete_tail(listint_t **head)
 {
 	listint_t *originhead = *head;
 	listint_t *beforeTail;
 
-	beforeTail = get_nodeint_at_index(*head, listint_len(*head) - 1);
+	beforeTail = get_nodeint_at_index(*head, listint_len(*head) - 2);
 
 	if (*head == NULL || beforeTail == NULL)
 		return (-1);
-	
+
 	while ((*head)->next != NULL)
 		*head = (*head)->next;
 
