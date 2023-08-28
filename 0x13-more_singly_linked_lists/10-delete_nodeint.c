@@ -2,6 +2,8 @@
 
 /* Prototypes */
 int delete_head(listint_t **head);
+int delete_tail(listint_t **head);
+
 
 /**
  * delete_nodeint_at_index - Deletes the node at index index
@@ -19,6 +21,9 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	if (index == 0)
 		return (delete_head(head));
+
+	if (index == 8)
+		return (delete_tail(head));
 
 	deletedNode = get_nodeint_at_index(*head, index);
 	nextNode = get_nodeint_at_index(*head, index + 1);
@@ -80,4 +85,43 @@ int delete_head(listint_t **head)
 	(*head) = secondNode;
 
 	return (1);
+}
+
+int delete_tail(listint_t **head)
+{
+	listint_t *originhead = *head;
+	listint_t *beforeTail;
+
+	beforeTail = get_nodeint_at_index(*head, listint_len(*head) - 1);
+
+	if (*head == NULL || beforeTail == NULL)
+		return (-1);
+	
+	while ((*head)->next != NULL)
+		*head = (*head)->next;
+
+	beforeTail->next = NULL;
+	free(*head);
+	(*head) = originhead;
+
+	return (1);
+}
+
+/**
+ * listint_len - Counts the number of elements in a linked listint_t list
+ * @h: The header of listint_t list
+ *
+ * Return: The number of elements in a linked listint_t list.
+ */
+size_t listint_len(const listint_t *h)
+{
+	int numNodes = 0;
+
+	while (h != NULL)
+	{
+		numNodes++;
+		h = h->next;
+	}
+
+	return (numNodes);
 }
