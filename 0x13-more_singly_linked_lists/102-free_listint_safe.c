@@ -12,7 +12,7 @@ size_t circular_list_len(listint_t *head);
 size_t free_listint_safe(listint_t **h)
 {
 	listint_t *temp;
-	size_t i, numNodes, listSize = 0;
+	size_t i, numNodes;
 
 	if (h == NULL || *h == NULL)
 		return (0);
@@ -23,12 +23,11 @@ size_t free_listint_safe(listint_t **h)
 	{
 		temp = *h;
 		*h = (*h)->next;
-		listSize += sizeof(temp);
 		free(temp);
 	}
 	*h = NULL;
 
-	return (listSize);
+	return (numNodes);
 }
 
 /**
