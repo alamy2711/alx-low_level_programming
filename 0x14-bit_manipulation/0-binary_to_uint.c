@@ -9,7 +9,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int i, res = 0;
-	
+
 	if (b == NULL)
 		return (0);
 
@@ -18,7 +18,7 @@ unsigned int binary_to_uint(const char *b)
 		if (b[i] != '0' && b[i] != '1')
 			return (0);
 
-		res += b[strlen(b) - 1 - i] * pow(2, i);
+		res += (b[strlen(b) - 1 - i] - '0') << i;
 	}
 
 	return (res);
