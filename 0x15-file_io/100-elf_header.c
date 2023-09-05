@@ -70,8 +70,8 @@ int main(int ac, char **av)
 	printf("  Type:                              %s\n",
 		   elf_header->e_type == ET_EXEC ? "EXEC (Executable file)" : "EXEC (Executable file)");
 	printf("  Entry point address:               0x%lx (bytes into file)\n", elf_header->e_entry);
-	printf("  Start of program headers:          %lu (bytes into file)\n", elf_header->e_phoff);
-	printf("  Start of section headers:          %lu (bytes into file)\n", elf_header->e_shoff);
+	printf("  Start of program headers:          %d (bytes into file)\n", (int)elf_header->e_phoff);
+	printf("  Start of section headers:          %d (bytes into file)\n", (int)elf_header->e_shoff);
 	printf("  Flags:                             0x%x\n", elf_header->e_flags);
 	printf("  Size of this header:               %d (bytes)\n", elf_header->e_ehsize);
 	printf("  Size of program headers:           %d (bytes)\n", elf_header->e_phentsize);
