@@ -55,30 +55,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 
-	printf("ELF Header:\n");
-	printf("  Magic:   %02x %02x %02x %02x\n",
-		   elf_header->e_ident[EI_MAG0], elf_header->e_ident[EI_MAG1],
-		   elf_header->e_ident[EI_MAG2], elf_header->e_ident[EI_MAG3]);
-	printf("  Class:                             %s\n",
-		   elf_header->e_ident[EI_CLASS] == ELFCLASS32 ? "ELF32" : "ELF64");
-	printf("  Data:                              %s\n",
-		   elf_header->e_ident[EI_DATA] == ELFDATA2LSB ? "2's complement, little endian" : "2's complement, big endian");
-	printf("  Version:                           %d (current)\n", elf_header->e_ident[EI_VERSION]);
-	printf("  OS/ABI:                            %s\n",
-		   elf_header->e_ident[EI_OSABI] == ELFOSABI_SYSV ? "UNIX - System V" : "UNIX - System V");
-	printf("  ABI Version:                       %d\n", elf_header->e_ident[EI_ABIVERSION]);
-	printf("  Type:                              %s\n",
-		   elf_header->e_type == ET_EXEC ? "EXEC (Executable file)" : "EXEC (Executable file)");
-	printf("  Entry point address:               0x%lx (bytes into file)\n", elf_header->e_entry);
-	printf("  Start of program headers:          %d (bytes into file)\n", (int)elf_header->e_phoff);
-	printf("  Start of section headers:          %d (bytes into file)\n", (int)elf_header->e_shoff);
-	printf("  Flags:                             0x%x\n", elf_header->e_flags);
-	printf("  Size of this header:               %d (bytes)\n", elf_header->e_ehsize);
-	printf("  Size of program headers:           %d (bytes)\n", elf_header->e_phentsize);
-	printf("  Number of program headers:         %d\n", elf_header->e_phnum);
-	printf("  Size of section headers:           %d (bytes)\n", elf_header->e_shentsize);
-	printf("  Number of section headers:         %d\n", elf_header->e_shnum);
-	printf("  Section header string table index: %d\n", elf_header->e_shstrndx);
+	/* Print functions here... */
 
 	printCloseError(close(fd));
 
