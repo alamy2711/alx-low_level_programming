@@ -21,8 +21,8 @@ int main(int ac, char **av)
 		exit(97);
 	}
 
-	fd_from = open(av[1], O_RDWR, 0664);
-	fd_to = open(av[2], O_RDWR | O_CREAT | O_APPEND | O_TRUNC, 0664);
+	fd_from = open(av[1], O_RDONLY);
+	fd_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	if (fd_from == -1)
 	{
