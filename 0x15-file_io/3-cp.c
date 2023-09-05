@@ -26,17 +26,15 @@ int main(int ac, char **av)
 
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", av[1]);
-		printCloseError(close(fd_from));
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		printCloseError(close(fd_to));
 		exit(98);
 	}
 
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		printCloseError(close(fd_from));
-		printCloseError(close(fd_to));
 		exit(99);
 	}
 
@@ -46,7 +44,7 @@ int main(int ac, char **av)
 
 		if (write_return == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			printCloseError(close(fd_from));
 			printCloseError(close(fd_to));
 			exit(99);
@@ -55,7 +53,7 @@ int main(int ac, char **av)
 
 	if (numLetters == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		printCloseError(close(fd_from));
 		printCloseError(close(fd_to));
 		exit(98);
@@ -75,7 +73,7 @@ void printCloseError(int close_return)
 {
 	if (close_return == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", close_return);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", close_return);
 		exit(100);
 	}
 }
