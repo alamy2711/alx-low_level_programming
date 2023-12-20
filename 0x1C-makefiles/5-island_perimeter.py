@@ -12,6 +12,9 @@ def island_perimeter(grid):
         for j in range(cols):
             if grid[i][j] == 1:
                 for x, y in directions:
-                    if grid[i + x][j + y] == 0:
-                        pr += 1
+                    try:
+                        if grid[i + x][j + y] == 0:
+                            pr += 1
+                    except:
+                        pass
     return pr
