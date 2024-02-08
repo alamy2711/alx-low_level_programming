@@ -12,29 +12,29 @@
  */
 int *advanced_binary_helper(int *array, size_t size, int value)
 {
-	size_t i = 0;
+	size_t idx = 0;
 
-	if (!size || !array)
+	if (array == NULL || !size)
 		return (NULL);
 
 	/* Print the current subarray being searched */
 	printf("Searching in array: ");
-	for (i = 0; i < size; i++)
-		printf("%d%s", array[i], i + 1 == size ? "\n" : ", ");
+	for (idx = 0; idx < size; idx++)
+		printf("%d%s", array[idx], idx + 1 == size ? "\n" : ", ");
 
-	i = (size - 1) / 2;
+	idx = (size - 1) / 2;
 
 	/* Check if the middle element is the target value */
-	if (array[i] == value)
+	if (array[idx] == value)
 	{
-		if (i)
-			return (advanced_binary_helper(array, i + 1, value));
-		return (array + i);
+		if (idx)
+			return (advanced_binary_helper(array, idx + 1, value));
+		return (array + idx);
 	}
-	else if (array[i] > value)
-		return (advanced_binary_helper(array, i + 1, value));
+	else if (array[idx] > value)
+		return (advanced_binary_helper(array, idx + 1, value));
 	else
-		return (advanced_binary_helper(array + i + 1, size - i - 1, value));
+		return (advanced_binary_helper(array + idx + 1, size - idx - 1, value));
 }
 
 /**
