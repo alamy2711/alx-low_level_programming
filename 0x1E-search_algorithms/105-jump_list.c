@@ -12,32 +12,32 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t step, step_size;
-	listint_t *current, *jump;
+	size_t pace, pace_size;
+	listint_t *current, *jumper;
 
 	if (list == NULL || size == 0)
 		return (NULL);
 
-	step = 0;
-	step_size = sqrt(size);
+	pace = 0;
+	pace_size = sqrt(size);
 
 	/* Jumping through the list */
-	for (current = jump = list; jump->index + 1 < size && jump->n < value;)
+	for (current = jumper = list; jumper->index + 1 < size && jumper->n < value;)
 	{
-		current = jump;
-		for (step += step_size; jump->index < step; jump = jump->next)
+		current = jumper;
+		for (pace += pace_size; jumper->index < pace; jumper = jumper->next)
 		{
-			if (jump->index + 1 == size)
+			if (jumper->index + 1 == size)
 				break;
 		}
-		printf("Value checked at index [%ld] = [%d]\n", jump->index, jump->n);
+		printf("Value checked at index [%ld] = [%d]\n", jumper->index, jumper->n);
 	}
 
 	printf("Value found between indexes [%ld] and [%ld]\n", current->index,
-	jump->index);
+	jumper->index);
 
 	/* Linear search within the found range */
-	for (; current->index < jump->index && current->n < value;
+	for (; current->index < jumper->index && current->n < value;
 	current = current->next)
 		printf("Value checked at index [%ld] = [%d]\n", current->index,
 		current->n);
