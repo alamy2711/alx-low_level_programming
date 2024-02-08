@@ -17,11 +17,11 @@ int jump_search(int *array, size_t size, int value)
 	if (array == NULL || size == 0)
 		return (-1);
 
-	pace = sqrt(size);
+	pace = (int)sqrt((double)size);
 	current = jump = 0;
 	while (jump < size && array[jump] < value)
 	{
-		printf("Value checked array [%ld] = [%d]\n", jump, array[jump]);
+		printf("Value checked array[%ld] = [%d]\n", jump, array[jump]);
 		current = jump;
 		jump += pace;
 	}
@@ -31,11 +31,11 @@ int jump_search(int *array, size_t size, int value)
 	jump = jump > size - 1 ? jump : size - 1;
 	while (current < jump && array[current] < value)
 	{
-		printf("Value checked array [%ld] = [%d]\n", current, array[current]);
+		printf("Value checked array[%ld] = [%d]\n", current, array[current]);
 		current++;
 	}
 
-	printf("Value checked array [%ld] = [%d]\n", current, array[current]);
+	printf("Value checked array[%ld] = [%d]\n", current, array[current]);
 
 	return (array[current] == value ? (int)current : -1);
 }
